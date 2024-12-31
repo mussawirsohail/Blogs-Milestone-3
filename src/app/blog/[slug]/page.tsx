@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 type BlogProps = {
-  params: {slug:string};
+  params: { slug:string };
 };
 const blogData: Record<string, { title: string; content: string }> = {
   "Code-Catalyst": {
@@ -22,16 +22,32 @@ const blogData: Record<string, { title: string; content: string }> = {
   },
   "Path-finders": {
     title: "Path-finders",
-    content: "Uncover strategies and stories for navigating life’s twists and turns with confidence. Whether it’s personal growth or professional development, this blog offers guidance to help you find your way. Let’s explore the path to success together.",
+    content: "Uncover strategies and stories for navigating lifes twists and turns with confidence. Whether its personal growth or professional development, this blog offers guidance to help you find your way. Lets explore the path to success together.",
   },
   "Curiosity-Compass": {
     title: "Curiosity-Compass",
     content: "A guide to uncovering intriguing discoveries and unraveling fascinating topics across diverse fields. Ignite your curiosity and broaden your understanding of the world. Follow your inner compass to explore the unknown.",
   },
 };
+// export default function BlogPost({ params }: BlogProps) {
+//   const {slug} = params;
+//   const blogsection = blogData[slug];
+
+//   const [comments, setComments] = useState<string[]>([]);
+//   const [newComment, setNewComment] = useState<string>("");
+
+//   const handleAddComment = () => {
+//     if (newComment.trim() !== "") {
+//       setComments([...comments, newComment]);
+//       setNewComment("");
+//     }
+//   };
 export default function BlogPost({ params }: BlogProps) {
-  const {slug} = params;
+  const { slug } = params;
   const blogsection = blogData[slug];
+
+  // State for comments
+
   const [comments, setComments] = useState<string[]>([]);
   const [newComment, setNewComment] = useState<string>("");
 
@@ -41,6 +57,7 @@ export default function BlogPost({ params }: BlogProps) {
       setNewComment("");
     }
   };
+  
   return (
     <div
       className="min-h-screen bg-cover bg-center text-white flex justify-start items-center px-4 sm:px-8 lg:px-16"
